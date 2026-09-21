@@ -22,8 +22,12 @@
         <h3>{{ product.name }}</h3>
         <h3>{{ product.brand }}</h3>
         <h6 style="margin-top: 10px;">{{ product.price }}</h6>
-        <h3>{{ product.description }}</h3>
+        <div class="desc-toggle" onclick="toggleDescription()">
+        Описание товара <i class="bi bi-plus"></i>
     </div>
+
+    <div class="description-block" id="description">
+        <p>{{ product.description }}</p>
 
 </div>
 

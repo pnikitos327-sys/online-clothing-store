@@ -2,6 +2,7 @@
 {% load static %}
 <html lang="en">
 <head>
+    <script src="{% static 'main/script.js' %}"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Alumni+Sans:ital,wght@0,100..900;1,100..900&family=Orbitron:wght@400..900&display=swap" rel="stylesheet">
@@ -22,7 +23,6 @@
         <h3>best</h3>
     </header>
 
-    <!-- Выезжающая панель меню -->
     <div class="sidebar" id="sidebar">
         {% for category in categories %}
             <a href="{% url 'category' category.slug %}">{{ category.name }}</a>
@@ -32,22 +32,6 @@
     {% block body %}
     {% endblock %}
 
-    <script>
-    function toggleMenu() {
-        document.getElementById('sidebar').classList.toggle('open');
-    }
-
-    // Закрытие при клике вне панели
-    document.addEventListener('click', function(event) {
-        const sidebar = document.getElementById('sidebar');
-        const button = document.querySelector('.button-menu');
-
-        // Если клик НЕ по панели и НЕ по кнопке — закрываем
-        if (!sidebar.contains(event.target) && !button.contains(event.target)) {
-            sidebar.classList.remove('open');
-        }
-    });
-</script>
 
 </body>
 </html>
