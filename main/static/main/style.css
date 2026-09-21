@@ -1,0 +1,84 @@
+.product-grid {
+
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0px;
+    padding-left: 30px;
+}
+
+.product-detail {
+    display: flex;
+    gap: 40px;
+    padding: 40px;
+}
+
+.productscard {
+    display: flex;
+    flex-direction: column;
+    margin-top: 40px;
+}
+
+.product-img-card {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    padding-left: 90px;
+    gap: 20px;
+}
+
+.product-img-card img {
+    width: 100%;
+    height: 700px;
+    object-fit: cover;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    padding: 10px 25px;
+    background: white;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    position: relative;
+    z-index: 100;
+}
+
+.header h3 {
+    margin: 0;
+    font-size: 20px;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.button-menu {
+    background: none;
+    border: none;
+    padding: 0;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: -300px;
+    width: 300px;
+    height: 100%;
+    background: white;
+    box-shadow: 2px 0 8px rgba(0,0,0,0.1);
+    padding: 20px;
+    transition: left 0.3s ease;
+    z-index: 200;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.sidebar.open {
+    left: 0;
+}
+
+.sidebar a {
+    color: black;
+    text-decoration: none;
+    font-size: 18px;
+}

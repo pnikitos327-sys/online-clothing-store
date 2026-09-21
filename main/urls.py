@@ -1,8 +1,8 @@
-from django.contrib import admin
 from django.urls import path
 from . import views
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
     path('', views.main, name='main'),
+    path('card/<slug:slug>/', views.card, name='card'),
+    path('category/<slug:slug>/', views.category, name='category'), 
 ]

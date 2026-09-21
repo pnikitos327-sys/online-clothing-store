@@ -1,0 +1,30 @@
+{% extends 'layout.html' %}
+
+{% block title %}{{ product.name }}{% endblock %}
+
+{% block body %}
+
+<div class="product-detail">
+
+    <div class="product-img-card">
+        {% if main_image %}
+            <img src="{{ main_image.image.url }}" alt="">
+        {% endif %}
+
+        {% for img in product.images.all %}
+            {% if not img.is_main %}
+                <img src="{{ img.image.url }}" alt="">
+            {% endif %}
+        {% endfor %}
+    </div>
+
+    <div class="productscard">
+        <h3>{{ product.name }}</h3>
+        <h3>{{ product.brand }}</h3>
+        <h6 style="margin-top: 10px;">{{ product.price }}</h6>
+        <h3>{{ product.description }}</h3>
+    </div>
+
+</div>
+
+{% endblock %}
