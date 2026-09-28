@@ -7,6 +7,24 @@ class Category(models.Model):
     def __str__(self):
         return self.name
 
+SIZE_CHOICES = {
+        ('XS', 'XS'),
+        ('S', 'S'),
+        ('M', 'M'),
+        ('L', 'L'),
+        ('XL', 'XL'),
+        ('XXL', 'XXL'),
+
+    }
+
+
+class Size(models.Model):
+    name = models.CharField(max_length=10)
+
+
+    def __str__(self):
+        return self.name
+
 class Product(models.Model):
     category = models.ForeignKey(Category, related_name='products', blank=True, null=True, on_delete=models.CASCADE)
     name = models.CharField(max_length=20, db_index=True)
@@ -15,6 +33,10 @@ class Product(models.Model):
     price = models.DecimalField(db_index=True, max_digits=10, decimal_places=2)
     image = models.ImageField(upload_to='products/', blank=True, null=True)
     slug = models.SlugField(db_index=True, unique=True)
+    sizes = models.ManyToManyField(Size, blank=True)
+
+
+
 
     def __str__(self):
         return self.name
@@ -27,3 +49,7 @@ class ProductImage(models.Model):
 
     def __str__(self):
         return f"картинка для {self.product.name}"
+
+    
+
+

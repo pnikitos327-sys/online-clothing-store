@@ -21,6 +21,12 @@
     <div class="productscard">
         <h3>{{ product.name }}</h3>
         <h3>{{ product.brand }}</h3>
+        <div>
+        {% for size in product.sizes.all %}ы
+        <span>{{ size.name }}</span>
+        {% endfor %}
+        </div>
+
         <h6 style="margin-top: 10px;">{{ product.price }}</h6>
         <div class="desc-toggle" onclick="toggleDescription()">
         Описание товара <i class="bi bi-plus"></i>

@@ -85,6 +85,8 @@
 
 .description-block {
     display: none;
+    max-width: 200px;
+    margin-top: 10px;
 }
 
 .description-block.open {
