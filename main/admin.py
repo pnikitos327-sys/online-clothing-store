@@ -8,7 +8,7 @@ class ProductImageInline(admin.TabularInline):
 
 @admin.register(Product)
 class ProductAdmin(admin.ModelAdmin):
-    list_display = ['name', 'price', 'brand', 'category']
+    list_display = ['name', 'price', 'brand', 'category', 'availability']
     list_filter = ['category', 'brand']
     search_fields = ['name', 'brand']
     prepopulated_fields = {'slug' : ('name',)}
@@ -26,5 +26,3 @@ filter_horizontal = ('sizes',)
 @admin.register(Size)
 class SizeAdmin(admin.ModelAdmin):
     list_display = ['name']
-
-

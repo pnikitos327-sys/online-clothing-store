@@ -34,12 +34,24 @@ class Product(models.Model):
     image = models.ImageField(upload_to='products/', blank=True, null=True)
     slug = models.SlugField(db_index=True, unique=True)
     sizes = models.ManyToManyField(Size, blank=True)
-
-
-
+    availability = models.CharField(max_length=20)
 
     def __str__(self):
         return self.name
+
+match Product.availability:
+
+        case "in_stock":
+
+            message = "Товар есть в наличии"
+
+        case "low_stock":
+
+            message = "Осталось мало товара"
+
+        case "out_of_stock":
+
+            message = "Товара нет в наличии"
 
 class ProductImage(models.Model):
     product = models.ForeignKey(Product, related_name='images', on_delete=models.CASCADE  )
@@ -50,6 +62,6 @@ class ProductImage(models.Model):
     def __str__(self):
         return f"картинка для {self.product.name}"
 
+
+
     
-
-

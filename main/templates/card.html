@@ -26,6 +26,9 @@
         <span>{{ size.name }}</span>
         {% endfor %}
         </div>
+        <a href="{% url 'add_to_cart' product.slug %}">
+    Добавить в корзину
+</a>
 
         <h6 style="margin-top: 10px;">{{ product.price }}</h6>
         <div class="desc-toggle" onclick="toggleDescription()">
@@ -36,5 +39,7 @@
         <p>{{ product.description }}</p>
 
 </div>
+
+{{ message }}
 
 {% endblock %}
