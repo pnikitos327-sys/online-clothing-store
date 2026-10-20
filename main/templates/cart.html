@@ -1,8 +1,16 @@
 {% extends 'layout.html' %}
 
-{% block 'title' %} {% endblock %}
+{% block title %} {% endblock %}
 
 {% block body %}
 
-<p>ауе</p>
+<h1>Моя корзина</h1>
+{% for product in products %}
+    {{ product.product.name }}
+    {{ product.product.price}}
+    {{ product.quantity }}
+    
+    {% endfor %}
+
+
 {% endblock %}

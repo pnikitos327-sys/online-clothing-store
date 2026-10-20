@@ -2,7 +2,7 @@ from django.db import models
 from main.models import Product
 
 class Cart(models.Model):
-    session_key = models.CharField(max_length=255)
+    session_key = models.CharField(max_length=255, unique=True)
 
 class CartItem(models.Model):
     cart = models.ForeignKey(Cart, on_delete=models.CASCADE)
