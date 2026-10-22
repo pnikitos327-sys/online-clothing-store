@@ -7,7 +7,7 @@ from .models import CartItem
 def add_to_cart_view(request, slug):
     product = get_object_or_404(Product, slug=slug)
     add_to_cart(request, product)
-    return redirect('card', slug=slug)
+    return redirect('views_cart')
 
 
 def views_cart(request):

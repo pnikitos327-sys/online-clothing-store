@@ -4,13 +4,23 @@
 
 {% block body %}
 
-<h1>Моя корзина</h1>
-{% for product in products %}
-    {{ product.product.name }}
-    {{ product.product.price}}
-    {{ product.quantity }}
-    
+<h5 style="text-align: center; margin-top: 20px;">корзина</h5>
+
+
+
+<div class="cart_products">
+    {% for product in products %}
+        <div class="cart_product">
+            <img style="width: 130px;" src="{{ product.product.image.url }}" alt="">
+            <div class="cart_product_all">
+            <p>{{ product.product.name }}</p>
+            <p>{{ product.product.price }}</p>
+            <p>{{ product.quantity }}</p>
+            </div>
+
+        </div>
     {% endfor %}
+</div>
 
 
 {% endblock %}
